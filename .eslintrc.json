@@ -5,17 +5,8 @@
     "es2020": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended",
-    "@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "prettier"
-  ],
-  "ignorePatterns": ["dist", ".eslintrc.json"],
+  "extends": ["eslint:recommended"],
+  "ignorePatterns": ["dist", ".eslintrc.json", "node_modules", "storybook-static"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -24,7 +15,7 @@
       "jsx": true
     }
   },
-  "plugins": ["react-refresh", "react", "react-hooks", "@typescript-eslint", "jsx-a11y", "import"],
+  "plugins": ["@typescript-eslint", "react-refresh"],
   "rules": {
     "react-refresh/only-export-components": [
       "warn",
@@ -32,32 +23,25 @@
         "allowConstantExport": true
       }
     ],
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
         "argsIgnorePattern": "^_"
       }
     ],
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ]
+    "no-unused-vars": "off"
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "import/resolver": {
-      "typescript": {}
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_"
+          }
+        ]
+      }
     }
-  }
+  ]
 }
