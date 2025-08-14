@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
-import { AppRouter } from '@/router' // This will now work
+import { AppRouter } from '@/router'
 import { ThemeProvider } from '@/stores/context/ThemeContext'
 import { Toaster } from '@/components/ui/Toast'
 
