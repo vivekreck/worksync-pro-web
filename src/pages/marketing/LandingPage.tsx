@@ -1,9 +1,5 @@
-import { Hero } from '@/components/landing'
+import { MarketingLayout } from '@/components/layout/MarketingLayout'
 
 export const LandingPage = () => {
-  return (
-    <div className="min-h-screen">
-      <Hero />
-    </div>
-  )
+  return <MarketingLayout></MarketingLayout>
 }
