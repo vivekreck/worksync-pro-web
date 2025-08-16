@@ -1,11 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import { MarketingNavbar } from '@/components/common/MarketingNavbar'
-import { MarketingFooter } from '@/components/common/MarketingFooter'
+import { MarketingFooter, MarketingHeader } from '@/components/common'
 
 export const MarketingLayout = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <MarketingNavbar />
+      <MarketingHeader />
 
       <main className="flex-1 pt-16">
         <Outlet />

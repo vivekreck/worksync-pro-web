@@ -142,7 +142,7 @@ body {
 
 /* Enhanced focus styles */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white transition-all duration-200;
 }
 
 /* Modern button styles using your color system */
@@ -155,11 +155,11 @@ body {
 .btn-secondary {
   background: hsl(var(--color-muted));
   color: hsl(var(--color-foreground));
-  @apply px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-opacity-80 border border-border;
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-opacity-80;
 }
 
 .btn-ghost {
-  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-muted text-muted-foreground hover:text-foreground;
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100 text-gray-600 hover:text-gray-900;
 }
 
 /* Card styles */

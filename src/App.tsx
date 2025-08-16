@@ -3,7 +3,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { AppRouter } from '@/router'
 import { ThemeProvider } from '@/stores/context/ThemeContext'
-import { Toaster } from '@/components/ui/Toast'
+import { Toaster } from '@/components/ui'
 
 const queryClient = new QueryClient({
   defaultOptions: {
