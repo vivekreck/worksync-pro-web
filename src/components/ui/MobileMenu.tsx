@@ -7,11 +7,22 @@ interface MobileMenuProps {
   menuItems: Array<{
     label: string
     href: string
-    icon?: React.ReactNode
-    variant?: 'default' | 'danger'
+    icon: React.ReactNode
+    variant?: 'default' | 'danger' | 'primary'
   }>
 }
 export const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
+  const getVariantClasses = (variant?: 'default' | 'danger' | 'primary') => {
+    switch (variant) {
+      case 'danger':
+        return 'bg-[#1A0C0C] border border-[#222222] text-white hover:bg-[#2A1313]'
+      case 'primary':
+        return 'bg-[#0C1A2A] border border-[#222222] text-white hover:bg-[#132A4A]'
+      default:
+        return 'bg-[#161616] border border-[#222222] text-white hover:bg-[#1f1f1f]'
+    }
+  }
+
   return (
     <div className="md:hidden">
       <AnimatePresence>
@@ -58,12 +69,7 @@ export const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
                       duration: 0.3,
                       ease: 'easeOut',
                     }}
-                    className={`w-full flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-200 text-left
-                ${
-                  item.variant === 'danger'
-                    ? 'bg-[#1A0C0C] border border-[#222222] text-white hover:bg-[#2A1313]'
-                    : 'bg-[#161616] border border-[#222222] text-white hover:bg-[#1f1f1f]'
-                }
+                    className={`w-full flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-200 text-left ${getVariantClasses(item.variant)}
                 active:scale-95
               `}
                   >

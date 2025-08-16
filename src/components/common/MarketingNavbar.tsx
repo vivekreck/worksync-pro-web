@@ -1,12 +1,10 @@
-import React from 'react'
 import { Logo, NavLinks } from '../ui'
 import { MenuButton } from '../ui'
 
 interface Item {
   label: string
   href: string
-  icon?: React.ReactNode
-  variant?: 'default' | 'danger'
+  variant?: 'default' | 'danger' | 'primary'
 }
 
 interface MarketingNavbarProps {

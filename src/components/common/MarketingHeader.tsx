@@ -3,27 +3,30 @@ import { MobileMenu } from '../ui'
 import { MarketingNavbar } from './MarketingNavbar'
 import { Home, Star, DollarSign, LogIn, UserPlus } from 'lucide-react'
 
-interface Item {
+interface BaseItem {
   label: string
   href: string
-  icon?: React.ReactNode
-  variant?: 'default' | 'danger'
+  variant?: 'default' | 'danger' | 'primary'
 }
 
-const menuItems: Item[] = [
+interface ItemWithIcon extends BaseItem {
+  icon: React.ReactNode
+}
+
+const menuItems: ItemWithIcon[] = [
   { label: 'Home', href: '/', icon: <Home className="w-5 h-5" /> },
   { label: 'Features', href: '/feature', icon: <Star className="w-5 h-5" /> },
   { label: 'Pricing', href: '/pricing', icon: <DollarSign className="w-5 h-5" /> },
-  { label: 'Login', href: '/login', icon: <LogIn className="w-5 h-5" /> },
-  { label: 'Sign Up', href: '/signup', icon: <UserPlus className="w-5 h-5" /> },
+  { label: 'Login', href: '/login', icon: <LogIn className="w-5 h-5" />, variant: 'primary' },
+  { label: 'Sign Up', href: '/signup', icon: <UserPlus className="w-5 h-5" />, variant: 'primary' },
 ]
 
-const navItems: Item[] = [
+const navItems: BaseItem[] = [
   { label: 'Home', href: '#home' },
   { label: 'Features', href: '#features' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'Login', href: '/login' },
-  { label: 'Sign Up', href: '/signup' },
+  { label: 'Login', href: '/login', variant: 'primary' },
+  { label: 'Sign Up', href: '/signup', variant: 'primary' },
 ]
 
 export const MarketingHeader = () => {
