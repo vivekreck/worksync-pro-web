@@ -1,5 +1,4 @@
 import React from 'react'
-type ScaleName = 'sm' | 'md' | 'lg'
 
 import {
   Search,
@@ -19,7 +18,7 @@ import {
   Activity,
 } from 'lucide-react'
 
-export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
+export const DesktopMockup = () => {
   const currentTheme = {
     primary: 'bg-green-500/20 hover:bg-green-500/30 border-green-400/30',
     primaryText: 'text-green-300',
@@ -31,40 +30,16 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
     glass: 'bg-green-900/10',
   }
 
-  const scaleClasses = {
-    sm: {
-      container: 'max-w-3xl text-xs',
-      height: 'h-[280px]',
-      padding: 'p-3',
-      gap: 'gap-3',
-      iconSize: 'w-3 h-3',
-      avatarSize: 'w-5 h-5',
-      spacing: 'space-y-1',
-      bottomHeight: 'max-h-48',
-    },
-    md: {
-      container: 'max-w-5xl text-sm',
-      height: 'h-[350px]',
-      padding: 'p-4',
-      gap: 'gap-4',
-      iconSize: 'w-4 h-4',
-      avatarSize: 'w-6 h-6',
-      spacing: 'space-y-2',
-      bottomHeight: 'max-h-64',
-    },
-    lg: {
-      container: 'max-w-7xl text-base',
-      height: 'h-[500px]',
-      padding: 'p-6',
-      gap: 'gap-6',
-      iconSize: 'w-5 h-5',
-      avatarSize: 'w-8 h-8',
-      spacing: 'space-y-3',
-      bottomHeight: 'max-h-96',
-    },
+  const scaleClass = {
+    container: 'max-w-3xl text-xs',
+    height: 'h-[180px]',
+    padding: 'p-1',
+    gap: 'gap-1',
+    iconSize: 'w-2 h-2',
+    avatarSize: 'w-2 h-2',
+    spacing: 'space-y-0',
+    bottomHeight: 'max-h-52',
   }
-
-  const s = scaleClasses[scale]
 
   // Glassmorphism classes
   const glassClasses = {
@@ -95,9 +70,11 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
   )
 
   return (
-    <div className={`${s.container} mx-auto bg-[hsl(var(--color-background))]/70 backdrop-blur-md`}>
+    <div
+      className={`${scaleClass.container} mx-auto bg-[hsl(var(--color-background))]/70 backdrop-blur-md`}
+    >
       {/* Background with gradient */}
-      <div className="relative">
+      <div className="relative  transform hover:scale-105 transition-transform duration-700">
         <div className="absolute inset-0 rounded-lg"></div>
 
         <div
@@ -115,9 +92,9 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
               </div>
             </div>
             <div className="flex items-center gap-3 text-white/70">
-              <ArrowRight className={s.iconSize} />
+              <ArrowRight className={scaleClass.iconSize} />
               <div
-                className={`${s.container.includes('text-xs') ? 'text-xs' : 'text-sm'} font-medium hidden sm:block`}
+                className={`${scaleClass.container.includes('text-xs') ? 'text-xs' : 'text-sm'} font-medium hidden sm:block`}
               >
                 WorkSync Pro - Where Teams Sync, Work Flows
               </div>
@@ -125,8 +102,8 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
           </div>
 
           {/* Main Interface */}
-          <div className={`${s.padding} rounded-b-lg`}>
-            <div className={`grid grid-cols-12 ${s.gap} ${s.height}`}>
+          <div className={`${scaleClass.padding} rounded-b-lg`}>
+            <div className={`grid grid-cols-12 ${scaleClass.gap} ${scaleClass.height}`}>
               {/* Sidebar */}
               <AnimatedPanel delay={400} className="col-span-4 lg:col-span-3">
                 <div className={`${glassClasses.innerPanel} h-full rounded-lg p-3 shadow-xl`}>
@@ -141,7 +118,7 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
                     </span>
                   </div>
 
-                  <nav className={s.spacing}>
+                  <nav className={scaleClass.spacing}>
                     {[
                       { name: 'Dashboard', icon: BarChart3, active: true },
                       { name: 'Projects', icon: FolderOpen },
@@ -158,7 +135,7 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
                             : 'text-white/70 hover:bg-white/10 hover:text-white'
                         }`}
                       >
-                        <item.icon className={s.iconSize} />
+                        <item.icon className={scaleClass.iconSize} />
                         <span className="text-xs font-medium hidden lg:block">{item.name}</span>
                       </div>
                     ))}
@@ -166,7 +143,7 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
 
                   <div className="mt-4 invisible">
                     <div className="text-xs text-white/50 uppercase tracking-wide mb-2">Recent</div>
-                    <div className={s.spacing}>
+                    <div className={scaleClass.spacing}>
                       <div className="flex items-center gap-2 p-1.5 rounded-lg text-white/70 hover:bg-white/10 cursor-pointer">
                         <div className={`w-1.5 h-1.5 ${currentTheme.dot} rounded-full`}></div>
                         <span className="text-xs">Mobile App</span>
@@ -186,13 +163,13 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
                       {[...Array(4)].map((_, i) => (
                         <div
                           key={i}
-                          className={`${s.avatarSize} bg-gradient-to-r from-purple-400/80 to-pink-400/80 rounded-full border-2 border-white/20 flex items-center justify-center text-white text-xs font-medium backdrop-blur-sm`}
+                          className={`${scaleClass.avatarSize} bg-gradient-to-r from-purple-400/80 to-pink-400/80 rounded-full border-2 border-white/20 flex items-center justify-center text-white text-xs font-medium backdrop-blur-sm`}
                         >
                           {String.fromCharCode(65 + i)}
                         </div>
                       ))}
                       <div
-                        className={`${s.avatarSize} bg-white/10 rounded-full border-2 border-white/20 flex items-center justify-center text-white/60 text-xs backdrop-blur-sm`}
+                        className={`${scaleClass.avatarSize} bg-white/10 rounded-full border-2 border-white/20 flex items-center justify-center text-white/60 text-xs backdrop-blur-sm`}
                       >
                         +2
                       </div>
@@ -219,10 +196,10 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
                     </div>
                     <div className="flex items-center gap-2">
                       <button className="p-1.5 hover:bg-white/10 rounded-lg transition-colors backdrop-blur-sm">
-                        <Search className={`${s.iconSize} text-white/60`} />
+                        <Search className={`${scaleClass.iconSize} text-white/60`} />
                       </button>
                       <button className="p-1.5 hover:bg-white/10 rounded-lg transition-colors relative backdrop-blur-sm">
-                        <Bell className={`${s.iconSize} text-white/60`} />
+                        <Bell className={`${scaleClass.iconSize} text-white/60`} />
                         <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full"></div>
                       </button>
                       <button
@@ -235,11 +212,11 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
                   </div>
 
                   {/* Content Area */}
-                  <div className={`p-3 overflow-y-auto ${s.bottomHeight}`}>
+                  <div className={`p-3 overflow-y-auto ${scaleClass.bottomHeight}`}>
                     {/* Real-time Collaboration Banner */}
                     <div className={`${glassClasses.banner} rounded-lg p-3 mb-4`}>
                       <div className="flex items-center gap-2">
-                        <Users className={`${s.iconSize} text-white`} />
+                        <Users className={`${scaleClass.iconSize} text-white`} />
                         <div>
                           <div className="text-white font-medium text-xs">Live Collaboration</div>
                           <div className="text-white/70 text-xs hidden sm:block">
@@ -349,13 +326,18 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
             </div>
 
             {/* Bottom Panels */}
-            <div className={`grid grid-cols-1 sm:grid-cols-3 ${s.gap} mt-4`}>
-              <AnimatedPanel delay={800}>
+            <div
+              className={`grid grid-cols-1 sm:grid-cols-3 ${scaleClass.gap} mt-4 flex items-end `}
+            >
+              <AnimatedPanel
+                delay={800}
+                className="bg-[hsl(var(--color-background))] backdrop-blur-md"
+              >
                 <div
-                  className={`${glassClasses.card} rounded-lg p-3 shadow-xl hover:shadow-2xl transition-shadow`}
+                  className={`${glassClasses.card} rounded-lg p-3 shadow-xl hover:shadow-2xl transition-shadow `}
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <BarChart3 className={`${s.iconSize} ${currentTheme.primaryText}`} />
+                    <BarChart3 className={`${scaleClass.iconSize} ${currentTheme.primaryText}`} />
                     <span className="text-white/90 font-medium text-xs">Analytics</span>
                   </div>
                   <div className="space-y-2">
@@ -373,12 +355,15 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
                 </div>
               </AnimatedPanel>
 
-              <AnimatedPanel delay={1000}>
+              <AnimatedPanel
+                delay={1000}
+                className="bg-[hsl(var(--color-background))] backdrop-blur-md"
+              >
                 <div
                   className={`${glassClasses.card} rounded-lg p-3 shadow-xl hover:shadow-2xl transition-shadow`}
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <MessageSquare className={`${s.iconSize} text-green-400`} />
+                    <MessageSquare className={`${scaleClass.iconSize} text-green-400`} />
                     <span className="text-white font-medium text-xs">Team Chat</span>
                   </div>
                   <div className="space-y-1.5">
@@ -394,12 +379,15 @@ export const DesktopMockup = ({ scale = 'sm' }: { scale?: ScaleName }) => {
                 </div>
               </AnimatedPanel>
 
-              <AnimatedPanel delay={1200}>
+              <AnimatedPanel
+                delay={1200}
+                className="bg-[hsl(var(--color-background))] backdrop-blur-md"
+              >
                 <div
                   className={`${glassClasses.card} rounded-lg p-3 shadow-xl hover:shadow-2xl transition-shadow`}
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <Calendar className={`${s.iconSize} ${currentTheme.primaryText}`} />
+                    <Calendar className={`${scaleClass.iconSize} ${currentTheme.primaryText}`} />
                     <span className="text-white/90 font-medium text-xs">Deadlines</span>
                   </div>
                   <div className="space-y-1.5">
