@@ -1,4 +1,5 @@
 import { HeroSection, AnimatedBackground } from '@/components/features/marketing'
+import { PlatformOverview } from '@/components/features/marketing/PlatformOverview'
 
 export const LandingPage = () => {
   return (
@@ -7,6 +8,7 @@ export const LandingPage = () => {
 
       <div className="relative z-10">
         <HeroSection />
+        <PlatformOverview />
       </div>
     </div>
   )
