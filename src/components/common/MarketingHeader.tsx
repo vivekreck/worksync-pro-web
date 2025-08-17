@@ -25,8 +25,6 @@ const navItems: BaseItem[] = [
   { label: 'Home', href: '#home' },
   { label: 'Features', href: '#features' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'Login', href: '/login', variant: 'primary' },
-  { label: 'Sign Up', href: '/signup', variant: 'primary' },
 ]
 
 export const MarketingHeader = () => {
