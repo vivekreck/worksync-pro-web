@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { SlideAnimation } from '@/components/shared'
+
 import {
   Search,
   Bell,
@@ -260,219 +262,227 @@ export function MobileMockup({
           </div>
 
           {/* Header */}
-          <AnimatedPanel delay={400}>
-            <div className={`${glassClasses.header} ${scale.px3} ${scale.py2}`}>
-              <div className="flex items-center justify-between">
-                <button
-                  onClick={() => setSidebarOpen(!sidebarOpen)}
-                  className={`${scale.p2} hover:bg-white/10 rounded-lg transition-colors backdrop-blur-sm`}
-                >
-                  <Menu className={`${scale.iconSm} text-white/90`} />
-                </button>
-                <div className={`flex items-center ${scale.gap2}`}>
-                  <div
-                    className={`${scale.avatarSm} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/20`}
-                  >
-                    <Zap className={`${scale.iconXs} text-white`} />
-                  </div>
-                  <span className={`text-white/90 font-semibold ${scale.textBase}`}>WorkSync</span>
-                </div>
-                <div className={`flex items-center ${scale.gap2}`}>
+          <SlideAnimation direction="up" delay={0.1} duration={1}>
+            <AnimatedPanel delay={400}>
+              <div className={`${glassClasses.header} ${scale.px3} ${scale.py2}`}>
+                <div className="flex items-center justify-between">
                   <button
-                    className={`${scale.p2} hover:bg-white/10 rounded-lg transition-colors relative backdrop-blur-sm`}
-                  >
-                    <Bell className={`${scale.iconXs} text-white/70`} />
-                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full border border-white/30"></div>
-                  </button>
-                  <button
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
                     className={`${scale.p2} hover:bg-white/10 rounded-lg transition-colors backdrop-blur-sm`}
                   >
-                    <Search className={`${scale.iconXs} text-white/70`} />
+                    <Menu className={`${scale.iconSm} text-white/90`} />
                   </button>
-                </div>
-              </div>
-            </div>
-          </AnimatedPanel>
-
-          {/* Main Content */}
-          <div className={`bg-transparent ${scale.height} overflow-y-auto`}>
-            {/* Live Collaboration Status */}
-            <AnimatedPanel delay={600}>
-              <div className={`${scale.p3} py-2`}>
-                <div className={`${glassClasses.banner} rounded-xl ${scale.p3}`}>
                   <div className={`flex items-center ${scale.gap2}`}>
                     <div
-                      className={`${scale.avatarMd} bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30`}
+                      className={`${scale.avatarSm} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/20`}
                     >
-                      <Users className={`${scale.iconXs} text-white`} />
+                      <Zap className={`${scale.iconXs} text-white`} />
                     </div>
-                    <div className="flex-1">
-                      <div className={`text-white/90 font-medium ${scale.textXs}`}>
-                        Live Session Active
-                      </div>
-                      <div className="text-white/70 text-xs">4 team members online</div>
-                    </div>
+                    <span className={`text-white/90 font-semibold ${scale.textBase}`}>
+                      WorkSync
+                    </span>
+                  </div>
+                  <div className={`flex items-center ${scale.gap2}`}>
                     <button
-                      className={`bg-white/20 border border-white/30 ${scale.p2} rounded-lg backdrop-blur-sm hover:bg-white/30 transition-colors`}
+                      className={`${scale.p2} hover:bg-white/10 rounded-lg transition-colors relative backdrop-blur-sm`}
                     >
-                      <Video className={`${scale.iconXs} text-white`} />
+                      <Bell className={`${scale.iconXs} text-white/70`} />
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full border border-white/30"></div>
+                    </button>
+                    <button
+                      className={`${scale.p2} hover:bg-white/10 rounded-lg transition-colors backdrop-blur-sm`}
+                    >
+                      <Search className={`${scale.iconXs} text-white/70`} />
                     </button>
                   </div>
                 </div>
               </div>
             </AnimatedPanel>
+          </SlideAnimation>
 
-            {/* Quick Stats */}
-            <AnimatedPanel delay={800}>
-              <div className={`${scale.p3} py-2`}>
-                <div className={`grid grid-cols-2 ${scale.gap2}`}>
-                  <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
-                    <div className={`flex items-center ${scale.gap2} ${scale.mb1}`}>
-                      <Target className={`${scale.iconXs} text-green-400`} />
-                      <span className={`text-white/90 ${scale.textXs} font-medium`}>Completed</span>
-                    </div>
-                    <div className={`${scale.textLg} font-bold text-green-400`}>23</div>
-                    <div className="text-white/60 text-xs">tasks this week</div>
-                  </div>
-                  <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
-                    <div className={`flex items-center ${scale.gap2} ${scale.mb1}`}>
-                      <Clock className={`${scale.iconXs} text-orange-400`} />
-                      <span className={`text-white/90 ${scale.textXs} font-medium`}>
-                        In Progress
-                      </span>
-                    </div>
-                    <div className={`${scale.textLg} font-bold text-orange-400`}>8</div>
-                    <div className="text-white/60 text-xs">active tasks</div>
-                  </div>
-                </div>
-              </div>
-            </AnimatedPanel>
-
-            {/* Recent Projects */}
-            <AnimatedPanel delay={1000}>
-              <div className={`${scale.p3} py-2`}>
-                <div className={`flex items-center justify-between ${scale.mb2}`}>
-                  <h3 className={`text-white/90 font-semibold ${scale.textSm}`}>Recent Projects</h3>
-                  <button className={`${currentTheme.primaryText} ${scale.textXs}`}>See all</button>
-                </div>
-                <div className="space-y-2">
-                  <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
+          {/* Main Content */}
+          <SlideAnimation direction="up" delay={0.1} duration={1}>
+            <div className={`bg-transparent ${scale.height} overflow-y-auto`}>
+              <AnimatedPanel delay={600}>
+                <div className={`${scale.p3} py-2`}>
+                  <div className={`${glassClasses.banner} rounded-xl ${scale.p3}`}>
                     <div className={`flex items-center ${scale.gap2}`}>
                       <div
-                        className={`${scale.avatarLg} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/20`}
+                        className={`${scale.avatarMd} bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30`}
                       >
-                        <FileText className={`${scale.iconSm} text-white`} />
+                        <Users className={`${scale.iconXs} text-white`} />
                       </div>
                       <div className="flex-1">
                         <div className={`text-white/90 font-medium ${scale.textXs}`}>
-                          Mobile App Redesign
+                          Live Session Active
                         </div>
-                        <div className={`text-white/60 ${scale.textXs}`}>Updated 2 hours ago</div>
+                        <div className="text-white/70 text-xs">4 team members online</div>
                       </div>
-                      <div className={`flex items-center ${scale.gap2}`}>
-                        <div className="flex -space-x-1">
-                          <div
-                            className={`${scale.avatarSm} bg-green-400/80 rounded-full border border-white/20 backdrop-blur-sm`}
-                          ></div>
-                          <div
-                            className={`${scale.avatarSm} bg-blue-400/80 rounded-full border border-white/20 backdrop-blur-sm`}
-                          ></div>
-                        </div>
-                        <ChevronRight className={`${scale.iconXs} text-white/60`} />
-                      </div>
-                    </div>
-                    <div className={scale.mt2}>
-                      <div
-                        className={`flex items-center justify-between ${scale.textXs} ${scale.mb1}`}
+                      <button
+                        className={`bg-white/20 border border-white/30 ${scale.p2} rounded-lg backdrop-blur-sm hover:bg-white/30 transition-colors`}
                       >
-                        <span className="text-white/60">Progress</span>
-                        <span className="text-green-400 font-medium">75%</span>
-                      </div>
-                      <div className="w-full bg-white/10 rounded-full h-1 backdrop-blur-sm">
-                        <div
-                          className="bg-green-400 h-1 rounded-full"
-                          style={{ width: '75%' }}
-                        ></div>
-                      </div>
+                        <Video className={`${scale.iconXs} text-white`} />
+                      </button>
                     </div>
                   </div>
                 </div>
-              </div>
-            </AnimatedPanel>
+              </AnimatedPanel>
 
-            {/* Team Chat Preview */}
-            <AnimatedPanel delay={1400}>
-              <div className={`${scale.p3} py-2 pb-14`}>
-                <div className={`flex items-center justify-between ${scale.mb2}`}>
-                  <h3 className={`text-white/90 font-semibold ${scale.textSm}`}>Team Chat</h3>
-                  <button className={`${currentTheme.primaryText} ${scale.textXs}`}>
-                    Open chat
-                  </button>
-                </div>
-                <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
-                  <div className="space-y-2">
-                    <div className={`flex items-start ${scale.gap2}`}>
-                      <div
-                        className={`${scale.avatarMd} bg-gradient-to-r from-purple-400/60 to-pink-500/60 rounded-full flex items-center justify-center text-white text-xs font-bold backdrop-blur-sm border border-white/20`}
-                      >
-                        SC
+              <AnimatedPanel delay={800}>
+                <div className={`${scale.p3} py-2`}>
+                  <div className={`grid grid-cols-2 ${scale.gap2}`}>
+                    <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
+                      <div className={`flex items-center ${scale.gap2} ${scale.mb1}`}>
+                        <Target className={`${scale.iconXs} text-green-400`} />
+                        <span className={`text-white/90 ${scale.textXs} font-medium`}>
+                          Completed
+                        </span>
                       </div>
-                      <div className="flex-1">
-                        <div
-                          className={`bg-white/10 rounded-lg ${scale.px2} ${scale.py1} backdrop-blur-sm border border-white/20`}
-                        >
-                          <div className={`text-white/90 ${scale.textXs}`}>
-                            Just pushed updates! 🚀
-                          </div>
-                        </div>
-                        <div className="text-white/60 text-xs mt-1">Sarah, 2 min ago</div>
+                      <div className={`${scale.textLg} font-bold text-green-400`}>23</div>
+                      <div className="text-white/60 text-xs">tasks this week</div>
+                    </div>
+                    <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
+                      <div className={`flex items-center ${scale.gap2} ${scale.mb1}`}>
+                        <Clock className={`${scale.iconXs} text-orange-400`} />
+                        <span className={`text-white/90 ${scale.textXs} font-medium`}>
+                          In Progress
+                        </span>
                       </div>
+                      <div className={`${scale.textLg} font-bold text-orange-400`}>8</div>
+                      <div className="text-white/60 text-xs">active tasks</div>
                     </div>
                   </div>
-                  <div
-                    className={`flex items-center ${scale.gap2} ${scale.mt2} pt-2 border-t border-white/10`}
-                  >
-                    <div
-                      className={`flex-1 ${glassClasses.input} rounded-lg ${scale.px2} ${scale.py1}`}
-                    >
-                      <input
-                        type="text"
-                        placeholder="Type a message..."
-                        className={`bg-transparent text-white/90 ${scale.textXs} w-full outline-none placeholder-white/50`}
-                      />
-                    </div>
-                    <button className={`${glassClasses.button} ${scale.p2} rounded-lg`}>
-                      <Send className={`${scale.iconXs} text-white`} />
+                </div>
+              </AnimatedPanel>
+
+              <AnimatedPanel delay={1000}>
+                <div className={`${scale.p3} py-2`}>
+                  <div className={`flex items-center justify-between ${scale.mb2}`}>
+                    <h3 className={`text-white/90 font-semibold ${scale.textSm}`}>
+                      Recent Projects
+                    </h3>
+                    <button className={`${currentTheme.primaryText} ${scale.textXs}`}>
+                      See all
                     </button>
                   </div>
+                  <div className="space-y-2">
+                    <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
+                      <div className={`flex items-center ${scale.gap2}`}>
+                        <div
+                          className={`${scale.avatarLg} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/20`}
+                        >
+                          <FileText className={`${scale.iconSm} text-white`} />
+                        </div>
+                        <div className="flex-1">
+                          <div className={`text-white/90 font-medium ${scale.textXs}`}>
+                            Mobile App Redesign
+                          </div>
+                          <div className={`text-white/60 ${scale.textXs}`}>Updated 2 hours ago</div>
+                        </div>
+                        <div className={`flex items-center ${scale.gap2}`}>
+                          <div className="flex -space-x-1">
+                            <div
+                              className={`${scale.avatarSm} bg-green-400/80 rounded-full border border-white/20 backdrop-blur-sm`}
+                            ></div>
+                            <div
+                              className={`${scale.avatarSm} bg-blue-400/80 rounded-full border border-white/20 backdrop-blur-sm`}
+                            ></div>
+                          </div>
+                          <ChevronRight className={`${scale.iconXs} text-white/60`} />
+                        </div>
+                      </div>
+                      <div className={scale.mt2}>
+                        <div
+                          className={`flex items-center justify-between ${scale.textXs} ${scale.mb1}`}
+                        >
+                          <span className="text-white/60">Progress</span>
+                          <span className="text-green-400 font-medium">75%</span>
+                        </div>
+                        <div className="w-full bg-white/10 rounded-full h-1 backdrop-blur-sm">
+                          <div
+                            className="bg-green-400 h-1 rounded-full"
+                            style={{ width: '75%' }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedPanel>
+
+              <AnimatedPanel delay={1400}>
+                <div className={`${scale.p3} py-2 pb-14`}>
+                  <div className={`flex items-center justify-between ${scale.mb2}`}>
+                    <h3 className={`text-white/90 font-semibold ${scale.textSm}`}>Team Chat</h3>
+                    <button className={`${currentTheme.primaryText} ${scale.textXs}`}>
+                      Open chat
+                    </button>
+                  </div>
+                  <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
+                    <div className="space-y-2">
+                      <div className={`flex items-start ${scale.gap2}`}>
+                        <div
+                          className={`${scale.avatarMd} bg-gradient-to-r from-purple-400/60 to-pink-500/60 rounded-full flex items-center justify-center text-white text-xs font-bold backdrop-blur-sm border border-white/20`}
+                        >
+                          SC
+                        </div>
+                        <div className="flex-1">
+                          <div
+                            className={`bg-white/10 rounded-lg ${scale.px2} ${scale.py1} backdrop-blur-sm border border-white/20`}
+                          >
+                            <div className={`text-white/90 ${scale.textXs}`}>
+                              Just pushed updates! 🚀
+                            </div>
+                          </div>
+                          <div className="text-white/60 text-xs mt-1">Sarah, 2 min ago</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={`flex items-center ${scale.gap2} ${scale.mt2} pt-2 border-t border-white/10`}
+                    >
+                      <div
+                        className={`flex-1 ${glassClasses.input} rounded-lg ${scale.px2} ${scale.py1}`}
+                      >
+                        <input
+                          type="text"
+                          placeholder="Type a message..."
+                          className={`bg-transparent text-white/90 ${scale.textXs} w-full outline-none placeholder-white/50`}
+                        />
+                      </div>
+                      <button className={`${glassClasses.button} ${scale.p2} rounded-lg`}>
+                        <Send className={`${scale.iconXs} text-white`} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedPanel>
+            </div>
+          </SlideAnimation>
+
+          <SlideAnimation direction="up" delay={0.1} duration={1}>
+            <AnimatedPanel delay={1600}>
+              <div className={`${glassClasses.nav} px-2 py-1`}>
+                <div className="flex items-center justify-around">
+                  {bottomNavItems.map(item => (
+                    <button
+                      key={item.id}
+                      onClick={() => setActiveTab(item.id)}
+                      className={`flex flex-col items-center ${scale.p1} rounded-lg transition-all backdrop-blur-sm ${
+                        activeTab === item.id
+                          ? `${currentTheme.accent} text-white border`
+                          : 'text-white/60 hover:text-white hover:bg-white/10'
+                      }`}
+                    >
+                      <item.icon className={scale.iconXs} />
+                      <span className="text-xs mt-1 font-medium">{item.label}</span>
+                    </button>
+                  ))}
                 </div>
               </div>
             </AnimatedPanel>
-          </div>
+          </SlideAnimation>
 
-          {/* Bottom Navigation */}
-          <AnimatedPanel delay={1600}>
-            <div className={`${glassClasses.nav} px-2 py-1`}>
-              <div className="flex items-center justify-around">
-                {bottomNavItems.map(item => (
-                  <button
-                    key={item.id}
-                    onClick={() => setActiveTab(item.id)}
-                    className={`flex flex-col items-center ${scale.p1} rounded-lg transition-all backdrop-blur-sm ${
-                      activeTab === item.id
-                        ? `${currentTheme.accent} text-white border`
-                        : 'text-white/60 hover:text-white hover:bg-white/10'
-                    }`}
-                  >
-                    <item.icon className={scale.iconXs} />
-                    <span className="text-xs mt-1 font-medium">{item.label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </AnimatedPanel>
-
-          {/* Floating Action Button */}
           <AnimatedPanel delay={1800}>
             <div className="absolute bottom-14 right-3">
               <button
@@ -483,7 +493,6 @@ export function MobileMockup({
             </div>
           </AnimatedPanel>
 
-          {/* Quick Action Buttons */}
           <AnimatedPanel delay={2000}>
             <div className="absolute top-24 right-2 space-y-1">
               <button
