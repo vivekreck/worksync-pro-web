@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface MobileMenuProps {
   isOpen: boolean
@@ -12,6 +13,7 @@ interface MobileMenuProps {
   }>
 }
 export const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
+  const navigate = useNavigate()
   const getVariantClasses = (variant?: 'default' | 'danger' | 'primary') => {
     switch (variant) {
       case 'danger':
@@ -21,6 +23,15 @@ export const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
       default:
         return 'bg-[#161616] border border-[#222222] text-white hover:bg-[#1f1f1f]'
     }
+  }
+
+  const handleClick = (href: string) => {
+    if (href.startsWith('#')) {
+      navigate('/' + href)
+    } else {
+      navigate(href)
+    }
+    onClose?.()
   }
 
   return (
@@ -59,9 +70,7 @@ export const MobileMenu = ({ isOpen, onClose, menuItems }: MobileMenuProps) => {
                 {menuItems.map((item, index) => (
                   <motion.button
                     key={item.label}
-                    onClick={() => {
-                      onClose()
-                    }}
+                    onClick={() => handleClick(item.href)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{

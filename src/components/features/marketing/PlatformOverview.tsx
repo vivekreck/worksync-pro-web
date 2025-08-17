@@ -129,18 +129,20 @@ export const PlatformOverview = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="flex flex-wrap justify-center gap-6">
           {moduleListOne.map(module => (
-            <Card
-              key={module.id}
-              hoveredModule={hoveredModule}
-              module={module}
-              setHoveredModule={setHoveredModule}
-            />
+            <div key={module.id} className="w-full max-w-sm">
+              <Card
+                key={module.id}
+                hoveredModule={hoveredModule}
+                module={module}
+                setHoveredModule={setHoveredModule}
+              />
+            </div>
           ))}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-6 mt-6">
           {moduleListTwo.map(module => (
             <div key={module.id} className="w-full max-w-sm">
               <Card
