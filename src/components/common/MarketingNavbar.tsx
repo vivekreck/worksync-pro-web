@@ -15,7 +15,7 @@ interface MarketingNavbarProps {
 
 export const MarketingNavbar = ({ isOpen, onToggle, navItems }: MarketingNavbarProps) => {
   return (
-    <nav className="container mx-auto flex items-center justify-between p-4">
+    <nav className="container mx-auto flex items-center justify-between md:p-3 lg:px-4 lg:py-1 2xl:p-4">
       <Logo />
 
       <div className="hidden md:block">

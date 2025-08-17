@@ -11,7 +11,7 @@ export const Logo = ({ theme = 'dark' }: LogoProps) => {
 
   return (
     <Link to="/" className="flex items-center ">
-      <img src={logoSrc} alt="WorkSync Pro" className="h-8 w-auto md:h-16" />
+      <img src={logoSrc} alt="WorkSync Pro" className="h-8 w-auto md:h-8 lg:h-14 2xl:h-16" />
     </Link>
   )
 }
