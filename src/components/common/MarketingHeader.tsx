@@ -33,7 +33,7 @@ export const MarketingHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] border-b h-16 md:h-auto">
+    <header className="bg-[hsl(var(--color-background))] fixed top-0 left-0 right-0 z-[100] border-b h-16 md:h-auto">
       <MarketingNavbar
         isOpen={isMenuOpen}
         onToggle={() => setIsMenuOpen(cur => !cur)}
