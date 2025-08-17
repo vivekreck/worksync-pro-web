@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom'
 // features
 import { DesktopMockup } from './DesktopMockup'
 import { MobileMockup } from './MobileMockup'
-import { AnimatedBackground } from './AnimatedBackground'
 
 export function HeroSection() {
   return (
-    <section className="min-h-[calc(100vh-60px)] relative overflow-hidden bg-[hsl(var(--color-background))] flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-      {/* Background circles */}
-      <AnimatedBackground />
-
+    <section className="min-h-[calc(100vh-60px)] flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       {/* Left content */}
       <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left flex items-center justify-center lg:justify-start mt-10 md:mt-0">
         <motion.div
@@ -55,7 +51,7 @@ export function HeroSection() {
         </div>
 
         {/* Mobile mockup positioning */}
-        <div className="absolute md:-right-10  xl:-right-10 bottom-[-20px] md:bottom-[-30px] lg:bottom-[-40px] w-[180px] sm:w-[200px] md:w-[220px] lg:w-[250px] isolate">
+        <div className="absolute md:-right-10 xl:-right-10 bottom-[-20px] md:bottom-[-30px] lg:bottom-[-40px] w-[180px] sm:w-[200px] md:w-[220px] lg:w-[250px] isolate">
           <div className="hidden lg:block 2xl:hidden">
             <MobileMockup size="medium" />
           </div>
