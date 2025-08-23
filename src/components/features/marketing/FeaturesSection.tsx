@@ -9,7 +9,7 @@ interface Feature {
   highlightTitle: string
 }
 
-const FeaturesSection: React.FC = () => {
+export const FeaturesSection = () => {
   const features: Feature[] = [
     {
       id: 'performance',
@@ -215,5 +215,3 @@ const FeaturesSection: React.FC = () => {
     </div>
   )
 }
-
-export default FeaturesSection
