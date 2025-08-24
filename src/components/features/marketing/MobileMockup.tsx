@@ -181,25 +181,26 @@ export function MobileMockup({
   const scale = scalePresets[currentSize] || scalePresets.medium
 
   const currentTheme = {
-    primary: 'bg-green-500/20 hover:bg-green-500/30 border-green-400/30',
-    primarySolid: 'bg-green-600/80 hover:bg-green-700/80',
-    primaryText: 'text-green-300',
-    gradient: 'from-green-400/30 to-emerald-500/30',
-    banner: 'from-emerald-500/20 to-green-500/20',
-    accent: 'bg-green-500/20 border-green-400/30',
+    primary:
+      'bg-[hsl(var(--color-accent)/0.2)] hover:bg-[hsl(var(--color-accent)/0.3)] border-[hsl(var(--color-accent)/0.3)]',
+    primarySolid: 'bg-[hsl(var(--color-accent)/0.8)] hover:bg-[hsl(var(--color-accent)/0.9)]',
+    primaryText: 'text-[hsl(var(--color-accent))]',
+    gradient: 'from-[hsl(var(--color-accent)/0.3)] to-[hsl(var(--color-accent)/0.5)]',
+    banner: 'from-[hsl(var(--color-accent)/0.2)] to-[hsl(var(--color-accent)/0.3)]',
+    accent: 'bg-[hsl(var(--color-accent)/0.2)] border-[hsl(var(--color-accent)/0.3)]',
   }
 
   const glassClasses = {
-    panel: `backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl`,
-    card: `backdrop-blur-md bg-white/5 border border-white/10`,
-    header: `backdrop-blur-lg bg-black/20 border-b border-white/10`,
-    overlay: `backdrop-blur-lg bg-black/30`,
-    sidebar: `backdrop-blur-xl bg-black/40 border-r border-white/20`,
+    panel: `backdrop-blur-xl bg-[hsl(var(--color-card)/0.5)] border border-[hsl(var(--color-border)/0.5)] shadow-[var(--shadow-lg)]`,
+    card: `backdrop-blur-md bg-[hsl(var(--color-card)/0.5)] border border-[hsl(var(--color-border)/0.5)]`,
+    header: `backdrop-blur-lg bg-[hsl(var(--color-background)/0.8)] border-b border-[hsl(var(--color-border)/0.5)]`,
+    overlay: `backdrop-blur-lg bg-[hsl(var(--color-background)/0.8)]`,
+    sidebar: `backdrop-blur-xl bg-[hsl(var(--color-background)/0.9)] border-r border-[hsl(var(--color-border)/0.8)]`,
     button: `backdrop-blur-md ${currentTheme.primary} border`,
-    banner: `backdrop-blur-lg bg-gradient-to-r ${currentTheme.banner} border border-white/20`,
-    input: `backdrop-blur-sm bg-white/10 border border-white/20`,
-    fab: `backdrop-blur-lg bg-gradient-to-r ${currentTheme.gradient} border border-white/30`,
-    nav: `backdrop-blur-xl bg-black/30 border-t border-white/10`,
+    banner: `backdrop-blur-lg bg-gradient-to-r ${currentTheme.banner} border border-[hsl(var(--color-border)/0.8)]`,
+    input: `backdrop-blur-sm bg-[hsl(var(--color-input))] border border-[hsl(var(--color-border)/0.8)]`,
+    fab: `backdrop-blur-lg bg-gradient-to-r ${currentTheme.gradient} border border-[hsl(var(--color-border)/0.8)]`,
+    nav: `backdrop-blur-xl bg-[hsl(var(--color-background)/0.8)] border-t border-[hsl(var(--color-border)/0.5)]`,
   }
 
   const AnimatedPanel = ({
@@ -231,7 +232,7 @@ export function MobileMockup({
 
   return (
     <div
-      className={`${scale.container} mx-auto bg-[hsl(var(--color-background))]/70 backdrop-blur-md`}
+      className={`${scale.container} mx-auto bg-[hsl(var(--color-background)/0.7)] backdrop-blur-md`}
     >
       {/* Mobile Phone Frame */}
       <AnimatedPanel className="perspective-1000">
@@ -240,22 +241,22 @@ export function MobileMockup({
         >
           {/* Phone Notch */}
           <div
-            className={`bg-black/50 ${scale.notch} rounded-b-2xl mx-auto flex items-center justify-center backdrop-blur-sm`}
+            className={`bg-[hsl(var(--color-background)/0.8)] ${scale.notch} rounded-b-2xl mx-auto flex items-center justify-center backdrop-blur-sm`}
           >
-            <div className="w-6 h-1 bg-white/30 rounded-full"></div>
+            <div className="w-6 h-1 bg-[hsl(var(--color-muted-foreground)/0.6)] rounded-full"></div>
           </div>
 
           {/* Status Bar */}
           <div
-            className={`bg-black/20 backdrop-blur-lg ${scale.px3} ${scale.py1} flex items-center justify-between text-white/90 ${scale.textXs}`}
+            className={`bg-[hsl(var(--color-background)/0.8)] backdrop-blur-lg ${scale.px3} ${scale.py1} flex items-center justify-between text-[hsl(var(--color-foreground))] ${scale.textXs}`}
           >
             <span className="font-medium">9:41</span>
             <div className="flex items-center gap-1">
               <div className="flex gap-1">
-                <div className="w-1 h-2 bg-white/80 rounded-full"></div>
-                <div className="w-1 h-2 bg-white/80 rounded-full"></div>
-                <div className="w-1 h-2 bg-white/30 rounded-full"></div>
-                <div className="w-1 h-2 bg-white/30 rounded-full"></div>
+                <div className="w-1 h-2 bg-[hsl(var(--color-foreground)/0.8)] rounded-full"></div>
+                <div className="w-1 h-2 bg-[hsl(var(--color-foreground)/0.8)] rounded-full"></div>
+                <div className="w-1 h-2 bg-[hsl(var(--color-muted-foreground)/0.5)] rounded-full"></div>
+                <div className="w-1 h-2 bg-[hsl(var(--color-muted-foreground)/0.5)] rounded-full"></div>
               </div>
               <span className="text-xs ml-1">85%</span>
             </div>
@@ -268,31 +269,37 @@ export function MobileMockup({
                 <div className="flex items-center justify-between">
                   <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className={`${scale.p2} hover:bg-white/10 rounded-lg transition-colors backdrop-blur-sm`}
+                    className={`${scale.p2} hover:bg-[hsl(var(--color-muted)/0.5)] rounded-lg transition-colors backdrop-blur-sm`}
                   >
-                    <Menu className={`${scale.iconSm} text-white/90`} />
+                    <Menu className={`${scale.iconSm} text-[hsl(var(--color-foreground))]`} />
                   </button>
                   <div className={`flex items-center ${scale.gap2}`}>
                     <div
-                      className={`${scale.avatarSm} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/20`}
+                      className={`${scale.avatarSm} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-[hsl(var(--color-border)/0.8)]`}
                     >
-                      <Zap className={`${scale.iconXs} text-white`} />
+                      <Zap className={`${scale.iconXs} text-[hsl(var(--color-primary))]`} />
                     </div>
-                    <span className={`text-white/90 font-semibold ${scale.textBase}`}>
+                    <span
+                      className={`text-[hsl(var(--color-foreground))] font-semibold ${scale.textBase}`}
+                    >
                       WorkSync
                     </span>
                   </div>
                   <div className={`flex items-center ${scale.gap2}`}>
                     <button
-                      className={`${scale.p2} hover:bg-white/10 rounded-lg transition-colors relative backdrop-blur-sm`}
+                      className={`${scale.p2} hover:bg-[hsl(var(--color-muted)/0.5)] rounded-lg transition-colors relative backdrop-blur-sm`}
                     >
-                      <Bell className={`${scale.iconXs} text-white/70`} />
-                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full border border-white/30"></div>
+                      <Bell
+                        className={`${scale.iconXs} text-[hsl(var(--color-muted-foreground))]`}
+                      />
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-400 rounded-full border border-[hsl(var(--color-border)/0.8)]"></div>
                     </button>
                     <button
-                      className={`${scale.p2} hover:bg-white/10 rounded-lg transition-colors backdrop-blur-sm`}
+                      className={`${scale.p2} hover:bg-[hsl(var(--color-muted)/0.5)] rounded-lg transition-colors backdrop-blur-sm`}
                     >
-                      <Search className={`${scale.iconXs} text-white/70`} />
+                      <Search
+                        className={`${scale.iconXs} text-[hsl(var(--color-muted-foreground))]`}
+                      />
                     </button>
                   </div>
                 </div>
@@ -308,20 +315,24 @@ export function MobileMockup({
                   <div className={`${glassClasses.banner} rounded-xl ${scale.p3}`}>
                     <div className={`flex items-center ${scale.gap2}`}>
                       <div
-                        className={`${scale.avatarMd} bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/30`}
+                        className={`${scale.avatarMd} bg-[hsl(var(--color-card)/0.8)] rounded-full flex items-center justify-center backdrop-blur-sm border border-[hsl(var(--color-border)/0.8)]`}
                       >
-                        <Users className={`${scale.iconXs} text-white`} />
+                        <Users className={`${scale.iconXs} text-[hsl(var(--color-primary))]`} />
                       </div>
                       <div className="flex-1">
-                        <div className={`text-white/90 font-medium ${scale.textXs}`}>
+                        <div
+                          className={`text-[hsl(var(--color-foreground))] font-medium ${scale.textXs}`}
+                        >
                           Live Session Active
                         </div>
-                        <div className="text-white/70 text-xs">4 team members online</div>
+                        <div className="text-[hsl(var(--color-muted-foreground))] text-xs">
+                          4 team members online
+                        </div>
                       </div>
                       <button
-                        className={`bg-white/20 border border-white/30 ${scale.p2} rounded-lg backdrop-blur-sm hover:bg-white/30 transition-colors`}
+                        className={`bg-[hsl(var(--color-card)/0.8)] border border-[hsl(var(--color-border)/0.8)] ${scale.p2} rounded-lg backdrop-blur-sm hover:bg-[hsl(var(--color-muted)/0.5)] transition-colors`}
                       >
-                        <Video className={`${scale.iconXs} text-white`} />
+                        <Video className={`${scale.iconXs} text-[hsl(var(--color-primary))]`} />
                       </button>
                     </div>
                   </div>
@@ -334,22 +345,30 @@ export function MobileMockup({
                     <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
                       <div className={`flex items-center ${scale.gap2} ${scale.mb1}`}>
                         <Target className={`${scale.iconXs} text-green-400`} />
-                        <span className={`text-white/90 ${scale.textXs} font-medium`}>
+                        <span
+                          className={`text-[hsl(var(--color-foreground))] ${scale.textXs} font-medium`}
+                        >
                           Completed
                         </span>
                       </div>
                       <div className={`${scale.textLg} font-bold text-green-400`}>23</div>
-                      <div className="text-white/60 text-xs">tasks this week</div>
+                      <div className="text-[hsl(var(--color-muted-foreground))] text-xs">
+                        tasks this week
+                      </div>
                     </div>
                     <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
                       <div className={`flex items-center ${scale.gap2} ${scale.mb1}`}>
                         <Clock className={`${scale.iconXs} text-orange-400`} />
-                        <span className={`text-white/90 ${scale.textXs} font-medium`}>
+                        <span
+                          className={`text-[hsl(var(--color-foreground))] ${scale.textXs} font-medium`}
+                        >
                           In Progress
                         </span>
                       </div>
                       <div className={`${scale.textLg} font-bold text-orange-400`}>8</div>
-                      <div className="text-white/60 text-xs">active tasks</div>
+                      <div className="text-[hsl(var(--color-muted-foreground))] text-xs">
+                        active tasks
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -358,7 +377,9 @@ export function MobileMockup({
               <AnimatedPanel delay={1000}>
                 <div className={`${scale.p3} py-2`}>
                   <div className={`flex items-center justify-between ${scale.mb2}`}>
-                    <h3 className={`text-white/90 font-semibold ${scale.textSm}`}>
+                    <h3
+                      className={`text-[hsl(var(--color-foreground))] font-semibold ${scale.textSm}`}
+                    >
                       Recent Projects
                     </h3>
                     <button className={`${currentTheme.primaryText} ${scale.textXs}`}>
@@ -369,36 +390,48 @@ export function MobileMockup({
                     <div className={`${glassClasses.card} rounded-xl ${scale.p3}`}>
                       <div className={`flex items-center ${scale.gap2}`}>
                         <div
-                          className={`${scale.avatarLg} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/20`}
+                          className={`${scale.avatarLg} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-[hsl(var(--color-border)/0.8)]`}
                         >
-                          <FileText className={`${scale.iconSm} text-white`} />
+                          <FileText
+                            className={`${scale.iconSm} text-[hsl(var(--color-primary))]`}
+                          />
                         </div>
                         <div className="flex-1">
-                          <div className={`text-white/90 font-medium ${scale.textXs}`}>
+                          <div
+                            className={`text-[hsl(var(--color-foreground))] font-medium ${scale.textXs}`}
+                          >
                             Mobile App Redesign
                           </div>
-                          <div className={`text-white/60 ${scale.textXs}`}>Updated 2 hours ago</div>
+                          <div
+                            className={`text-[hsl(var(--color-muted-foreground))] ${scale.textXs}`}
+                          >
+                            Updated 2 hours ago
+                          </div>
                         </div>
                         <div className={`flex items-center ${scale.gap2}`}>
                           <div className="flex -space-x-1">
                             <div
-                              className={`${scale.avatarSm} bg-green-400/80 rounded-full border border-white/20 backdrop-blur-sm`}
+                              className={`${scale.avatarSm} bg-green-400/80 rounded-full border border-[hsl(var(--color-border)/0.8)] backdrop-blur-sm`}
                             ></div>
                             <div
-                              className={`${scale.avatarSm} bg-blue-400/80 rounded-full border border-white/20 backdrop-blur-sm`}
+                              className={`${scale.avatarSm} bg-blue-400/80 rounded-full border border-[hsl(var(--color-border)/0.8)] backdrop-blur-sm`}
                             ></div>
                           </div>
-                          <ChevronRight className={`${scale.iconXs} text-white/60`} />
+                          <ChevronRight
+                            className={`${scale.iconXs} text-[hsl(var(--color-muted-foreground))]`}
+                          />
                         </div>
                       </div>
                       <div className={scale.mt2}>
                         <div
                           className={`flex items-center justify-between ${scale.textXs} ${scale.mb1}`}
                         >
-                          <span className="text-white/60">Progress</span>
+                          <span className="text-[hsl(var(--color-muted-foreground))]">
+                            Progress
+                          </span>
                           <span className="text-green-400 font-medium">75%</span>
                         </div>
-                        <div className="w-full bg-white/10 rounded-full h-1 backdrop-blur-sm">
+                        <div className="w-full bg-[hsl(var(--color-muted)/0.5)] rounded-full h-1 backdrop-blur-sm">
                           <div
                             className="bg-green-400 h-1 rounded-full"
                             style={{ width: '75%' }}
@@ -413,7 +446,11 @@ export function MobileMockup({
               <AnimatedPanel delay={1400}>
                 <div className={`${scale.p3} py-2 pb-14`}>
                   <div className={`flex items-center justify-between ${scale.mb2}`}>
-                    <h3 className={`text-white/90 font-semibold ${scale.textSm}`}>Team Chat</h3>
+                    <h3
+                      className={`text-[hsl(var(--color-foreground))] font-semibold ${scale.textSm}`}
+                    >
+                      Team Chat
+                    </h3>
                     <button className={`${currentTheme.primaryText} ${scale.textXs}`}>
                       Open chat
                     </button>
@@ -422,24 +459,26 @@ export function MobileMockup({
                     <div className="space-y-2">
                       <div className={`flex items-start ${scale.gap2}`}>
                         <div
-                          className={`${scale.avatarMd} bg-gradient-to-r from-purple-400/60 to-pink-500/60 rounded-full flex items-center justify-center text-white text-xs font-bold backdrop-blur-sm border border-white/20`}
+                          className={`${scale.avatarMd} bg-gradient-to-r from-purple-400/60 to-pink-500/60 rounded-full flex items-center justify-center text-[hsl(var(--color-primary))] text-xs font-bold backdrop-blur-sm border border-[hsl(var(--color-border)/0.8)]`}
                         >
                           SC
                         </div>
                         <div className="flex-1">
                           <div
-                            className={`bg-white/10 rounded-lg ${scale.px2} ${scale.py1} backdrop-blur-sm border border-white/20`}
+                            className={`bg-[hsl(var(--color-card)/0.8)] rounded-lg ${scale.px2} ${scale.py1} backdrop-blur-sm border border-[hsl(var(--color-border)/0.8)]`}
                           >
-                            <div className={`text-white/90 ${scale.textXs}`}>
+                            <div className={`text-[hsl(var(--color-foreground))] ${scale.textXs}`}>
                               Just pushed updates! 🚀
                             </div>
                           </div>
-                          <div className="text-white/60 text-xs mt-1">Sarah, 2 min ago</div>
+                          <div className="text-[hsl(var(--color-muted-foreground))] text-xs mt-1">
+                            Sarah, 2 min ago
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      className={`flex items-center ${scale.gap2} ${scale.mt2} pt-2 border-t border-white/10`}
+                      className={`flex items-center ${scale.gap2} ${scale.mt2} pt-2 border-t border-[hsl(var(--color-border)/0.5)]`}
                     >
                       <div
                         className={`flex-1 ${glassClasses.input} rounded-lg ${scale.px2} ${scale.py1}`}
@@ -447,11 +486,11 @@ export function MobileMockup({
                         <input
                           type="text"
                           placeholder="Type a message..."
-                          className={`bg-transparent text-white/90 ${scale.textXs} w-full outline-none placeholder-white/50`}
+                          className={`bg-transparent text-[hsl(var(--color-foreground))] ${scale.textXs} w-full outline-none placeholder-[hsl(var(--color-muted-foreground))]`}
                         />
                       </div>
                       <button className={`${glassClasses.button} ${scale.p2} rounded-lg`}>
-                        <Send className={`${scale.iconXs} text-white`} />
+                        <Send className={`${scale.iconXs} text-[hsl(var(--color-primary))]`} />
                       </button>
                     </div>
                   </div>
@@ -470,8 +509,8 @@ export function MobileMockup({
                       onClick={() => setActiveTab(item.id)}
                       className={`flex flex-col items-center ${scale.p1} rounded-lg transition-all backdrop-blur-sm ${
                         activeTab === item.id
-                          ? `${currentTheme.accent} text-white border`
-                          : 'text-white/60 hover:text-white hover:bg-white/10'
+                          ? `${currentTheme.accent} text-[hsl(var(--color-primary))] border`
+                          : 'text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted)/0.5)]'
                       }`}
                     >
                       <item.icon className={scale.iconXs} />
@@ -486,9 +525,9 @@ export function MobileMockup({
           <AnimatedPanel delay={1800}>
             <div className="absolute bottom-14 right-3">
               <button
-                className={`${scale.fab} ${glassClasses.fab} rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-shadow`}
+                className={`${scale.fab} ${glassClasses.fab} rounded-full shadow-[var(--shadow-lg)] flex items-center justify-center hover:shadow-[var(--shadow-lg)] transition-shadow`}
               >
-                <Plus className={`${scale.iconSm} text-white`} />
+                <Plus className={`${scale.iconSm} text-[hsl(var(--color-primary))]`} />
               </button>
             </div>
           </AnimatedPanel>
@@ -496,14 +535,14 @@ export function MobileMockup({
           <AnimatedPanel delay={2000}>
             <div className="absolute top-24 right-2 space-y-1">
               <button
-                className={`${scale.quickAction} bg-green-600/80 backdrop-blur-lg border border-white/20 rounded-full shadow-lg flex items-center justify-center hover:bg-green-700/80 transition-colors`}
+                className={`${scale.quickAction} bg-green-600/80 backdrop-blur-lg border border-[hsl(var(--color-border)/0.8)] rounded-full shadow-[var(--shadow-lg)] flex items-center justify-center hover:bg-green-700/80 transition-colors`}
               >
-                <Phone className={`${scale.iconXs} text-white`} />
+                <Phone className={`${scale.iconXs} text-[hsl(var(--color-primary))]`} />
               </button>
               <button
-                className={`${scale.quickAction} ${currentTheme.primarySolid} backdrop-blur-lg border border-white/20 rounded-full shadow-lg flex items-center justify-center transition-colors`}
+                className={`${scale.quickAction} ${currentTheme.primarySolid} backdrop-blur-lg border border-[hsl(var(--color-border)/0.8)] rounded-full shadow-[var(--shadow-lg)] flex items-center justify-center transition-colors`}
               >
-                <Video className={`${scale.iconXs} text-white`} />
+                <Video className={`${scale.iconXs} text-[hsl(var(--color-primary))]`} />
               </button>
             </div>
           </AnimatedPanel>
@@ -516,24 +555,26 @@ export function MobileMockup({
                 onClick={() => setSidebarOpen(false)}
               ></div>
               <div
-                className={`absolute left-0 top-0 bottom-0 ${scale.sidebar} ${glassClasses.sidebar} ${scale.p3} shadow-2xl`}
+                className={`absolute left-0 top-0 bottom-0 ${scale.sidebar} ${glassClasses.sidebar} ${scale.p3} shadow-[var(--shadow-lg)]`}
               >
                 <div className={`flex items-center justify-between ${scale.mb2}`}>
                   <div className={`flex items-center ${scale.gap2}`}>
                     <div
-                      className={`${scale.avatarMd} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-white/20`}
+                      className={`${scale.avatarMd} bg-gradient-to-r ${currentTheme.gradient} rounded-lg flex items-center justify-center backdrop-blur-sm border border-[hsl(var(--color-border)/0.8)]`}
                     >
-                      <Zap className={`${scale.iconSm} text-white`} />
+                      <Zap className={`${scale.iconSm} text-[hsl(var(--color-primary))]`} />
                     </div>
-                    <span className={`text-white/90 font-semibold ${scale.textSm}`}>
+                    <span
+                      className={`text-[hsl(var(--color-foreground))] font-semibold ${scale.textSm}`}
+                    >
                       WorkSync Pro
                     </span>
                   </div>
                   <button
                     onClick={() => setSidebarOpen(false)}
-                    className={`p-1 hover:bg-white/10 rounded backdrop-blur-sm`}
+                    className={`p-1 hover:bg-[hsl(var(--color-muted)/0.5)] rounded backdrop-blur-sm`}
                   >
-                    <X className={`${scale.iconSm} text-white/70`} />
+                    <X className={`${scale.iconSm} text-[hsl(var(--color-muted-foreground))]`} />
                   </button>
                 </div>
 
@@ -549,7 +590,7 @@ export function MobileMockup({
                   ].map(item => (
                     <div
                       key={item.name}
-                      className={`flex items-center ${scale.gap2} ${scale.p3} rounded-lg text-white/70 hover:bg-white/10 hover:text-white cursor-pointer transition-all backdrop-blur-sm`}
+                      className={`flex items-center ${scale.gap2} ${scale.p3} rounded-lg text-[hsl(var(--color-muted-foreground))] hover:bg-[hsl(var(--color-muted)/0.5)] hover:text-[hsl(var(--color-foreground))] cursor-pointer transition-all backdrop-blur-sm`}
                     >
                       <item.icon className={scale.iconSm} />
                       <span className={`font-medium ${scale.textSm}`}>{item.name}</span>
@@ -558,18 +599,20 @@ export function MobileMockup({
                 </nav>
 
                 <div className={scale.mt4}>
-                  <div className={`text-xs text-white/50 uppercase tracking-wide ${scale.mb2}`}>
+                  <div
+                    className={`text-xs text-[hsl(var(--color-muted-foreground))] uppercase tracking-wide ${scale.mb2}`}
+                  >
                     Quick Actions
                   </div>
                   <div className="space-y-1">
                     <button
-                      className={`w-full flex items-center ${scale.gap2} ${scale.p3} ${glassClasses.button} rounded-lg text-white transition-colors`}
+                      className={`w-full flex items-center ${scale.gap2} ${scale.p3} ${glassClasses.button} rounded-lg text-[hsl(var(--color-primary))] transition-colors`}
                     >
                       <Plus className={scale.iconSm} />
                       <span className={`font-medium ${scale.textSm}`}>New Task</span>
                     </button>
                     <button
-                      className={`w-full flex items-center ${scale.gap2} ${scale.p3} bg-green-600/80 backdrop-blur-md border border-green-400/30 rounded-lg text-white hover:bg-green-700/80 transition-colors`}
+                      className={`w-full flex items-center ${scale.gap2} ${scale.p3} bg-green-600/80 backdrop-blur-md border border-green-400/30 rounded-lg text-[hsl(var(--color-primary))] hover:bg-green-700/80 transition-colors`}
                     >
                       <Video className={scale.iconSm} />
                       <span className={`font-medium ${scale.textSm}`}>Start Meeting</span>

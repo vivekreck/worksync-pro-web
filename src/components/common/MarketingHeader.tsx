@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MobileMenu } from '../ui'
+import { MobileMenu } from '../ui/marketing'
 import { MarketingNavbar } from './MarketingNavbar'
 import { Home, Star, DollarSign, LogIn, UserPlus } from 'lucide-react'
 

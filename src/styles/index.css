@@ -49,6 +49,7 @@
 
   /* Accent colors */
   --color-accent: 210 100% 56%; /* #3B82F6 */
+  --color-accent-second: 142 76% 36%; /* #16A34A; */
   --color-accent-foreground: 0 0% 100%;
 
   /* Backgrounds */
@@ -56,13 +57,19 @@
   --color-foreground: 0 0% 100%;
 
   /* Muted text / placeholders */
-  --color-muted: 0 0% 12%; /* #1F1F1F */
+  --color-muted: 0 0% 55%; /* #1F1F1F */
   --color-muted-foreground: 0 0% 65%; /* #A1A1A1 */
 
   /* Borders & Inputs */
   --color-border: 0 0% 20%; /* #333333 */
   --color-input: 0 0% 15%; /* #262626 */
   --color-ring: 210 100% 56%; /* blue focus */
+
+  /* error */
+  --color-error: 0 84% 60%; /* #EF4444 */
+
+  /* success */
+  --color-success: 142 76% 36%; /* #16A34A; */
 
   /* Cards */
   --color-card: 0 0% 8%; /* #141414 */

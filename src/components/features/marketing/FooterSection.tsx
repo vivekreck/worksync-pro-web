@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import {
-  Zap,
   ChevronRight,
   Twitter,
   Linkedin,
@@ -10,6 +9,8 @@ import {
   Clock,
   Headphones,
 } from 'lucide-react'
+import { Logo } from '@/components/ui'
+import { Link } from 'react-router-dom'
 
 interface LinkItem {
   label: string
@@ -30,7 +31,7 @@ export const FooterSection = ({ className = '' }) => {
   const footerSections: FooterSectionData[] = [
     {
       title: 'Product',
-      color: 'text-blue-400',
+      color: 'text-[hsl(var(--color-accent))]',
       links: [
         { label: 'Features', href: '#features' },
         { label: 'Pricing', href: '#pricing' },
@@ -42,7 +43,7 @@ export const FooterSection = ({ className = '' }) => {
     },
     {
       title: 'Resources',
-      color: 'text-purple-400',
+      color: 'text-[hsl(var(--color-accent))]',
       links: [
         { label: 'Documentation', href: '#docs' },
         { label: 'Tutorials', href: '#tutorials' },
@@ -122,19 +123,68 @@ export const FooterSection = ({ className = '' }) => {
   }
 
   return (
-    <footer className={`text-white ${className}`}>
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Zap className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold">WorkSync Pro</span>
+    <footer className={`${className}`}>
+      <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="mt-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Stay in the sync</h3>
+              <p className="text-[hsl(var(--color-foreground))]/80">
+                Get the latest updates, tips, and exclusive content delivered to your inbox.
+              </p>
             </div>
-            <p className="text-slate-300 mb-6 leading-relaxed">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Enter your email address"
+                className={`flex-1 px-4 py-3 bg-[hsl(var(--color-background)/0.7)] border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent placeholder-[hsl(var(--color-muted-foreground)/0.7)] transition-all duration-200 ${
+                  emailError
+                    ? 'border-[hsl(var(--color-error))] ring-1 ring-[hsl(var(--color-error))]'
+                    : 'border-[hsl(var(--color-border))] focus:ring-[hsl(var(--color-border))]'
+                }`}
+              />
+              <button
+                onClick={handleSubscribe}
+                className={`px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 whitespace-nowrap ${
+                  isSubscribed
+                    ? 'bg-gradient-to-r from-[hsl(var(--color-accent-second)/0.3)] to-[hsl(var(--color-accent-second)/0.7)]'
+                    : 'bg-gradient-to-r from-[hsl(var(--color-accent)/0.3)] to-[hsl(var(--color-accent)/0.7)]'
+                }`}
+              >
+                {isSubscribed ? 'Subscribed!' : 'Subscribe'}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 pt-12 border-t border-[hsl(var(--color-border))]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {trustIndicators.map((indicator, index) => {
+              const IconComponent = indicator.icon
+              return (
+                <div key={index} className="flex flex-col items-center">
+                  <div className="w-16 h-16 bg-none rounded-full flex items-center justify-center mb-4">
+                    <IconComponent className={`w-8 h-8 ${indicator.color}`} />
+                  </div>
+                  <h4 className="font-semibold mb-2">{indicator.title}</h4>
+                  <p className="text-[hsl(var(--color-muted-foreground))] text-sm">
+                    {indicator.description}
+                  </p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-16 border-t border-[hsl(var(--color-border))] pt-16">
+          <div className="lg:col-span-1">
+            <div className="mb-5 -ml-8 -mt-2">
+              <Logo />
+            </div>
+            <p className="text-[hsl(var(--color-foreground)/0.8)] mb-6 leading-relaxed">
               The ultimate collaborative workspace platform where teams sync seamlessly and work
               flows effortlessly. Built for modern teams who demand excellence.
             </p>
@@ -142,14 +192,14 @@ export const FooterSection = ({ className = '' }) => {
               {socialLinks.map((social, index) => {
                 const IconComponent = social.icon
                 return (
-                  <a
+                  <Link
                     key={index}
-                    href={social.href}
+                    to={social.href}
                     aria-label={social.label}
-                    className="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors duration-200"
+                    className="w-10 h-10 hover:text-[hsl(var(--color-accent))] rounded-lg flex items-center justify-center transition-colors duration-200"
                   >
                     <IconComponent className="w-5 h-5" />
-                  </a>
+                  </Link>
                 )
               })}
             </div>
@@ -164,7 +214,7 @@ export const FooterSection = ({ className = '' }) => {
                   <li key={linkIndex}>
                     <button
                       onClick={() => scrollToSection(link.href)}
-                      className="text-slate-300 hover:text-white transition-colors duration-200 flex items-center group text-left"
+                      className="text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] transition-colors duration-200 flex items-center group text-left"
                     >
                       <ChevronRight className="w-4 h-4 mr-2 opacity-50 group-hover:opacity-100 transition-opacity" />
                       {link.label}
@@ -174,60 +224,6 @@ export const FooterSection = ({ className = '' }) => {
               </ul>
             </div>
           ))}
-        </div>
-
-        {/* Newsletter Subscription */}
-        <div className="mt-16 pt-12 border-t border-slate-800">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Stay in the sync</h3>
-              <p className="text-slate-300">
-                Get the latest updates, tips, and exclusive content delivered to your inbox.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Enter your email address"
-                className={`flex-1 px-4 py-3 bg-slate-800 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent text-white placeholder-slate-400 transition-all duration-200 ${
-                  emailError
-                    ? 'border-red-500 ring-2 ring-red-500'
-                    : 'border-slate-700 focus:ring-blue-500'
-                }`}
-              />
-              <button
-                onClick={handleSubscribe}
-                className={`px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 whitespace-nowrap ${
-                  isSubscribed
-                    ? 'bg-green-600 hover:bg-green-700'
-                    : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700'
-                }`}
-              >
-                {isSubscribed ? 'Subscribed!' : 'Subscribe'}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-16 pt-12 border-t border-slate-800">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {trustIndicators.map((indicator, index) => {
-              const IconComponent = indicator.icon
-              return (
-                <div key={index} className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-4">
-                    <IconComponent className={`w-8 h-8 ${indicator.color}`} />
-                  </div>
-                  <h4 className="font-semibold mb-2">{indicator.title}</h4>
-                  <p className="text-slate-400 text-sm">{indicator.description}</p>
-                </div>
-              )
-            })}
-          </div>
         </div>
       </div>
     </footer>

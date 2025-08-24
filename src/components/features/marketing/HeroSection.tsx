@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 // features
 import { DesktopMockup } from './DesktopMockup'
 import { MobileMockup } from './MobileMockup'
+import { LinkButton, Heading } from '@/components/ui/marketing'
 
 export function HeroSection() {
   return (
@@ -15,24 +16,14 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-8xl font-semibold tracking-tight leading-tight">
-            Teams sync, collaborate & deliver — in real time.
-          </h1>
-          <p className="mt-4 md:mt-6 text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl 2xl:text-2xl text-gray-400 max-w-2xl mx-auto lg:mx-0">
-            The modern workspace platform that empowers teams to work together seamlessly.
-            <span className="hidden sm:inline">
-              <br />
-            </span>
-            <span className="sm:hidden"> </span>
-            Boost productivity by 40% with our intelligent collaboration tools.
-          </p>
+          <Heading
+            variant="hero"
+            title="Teams sync, collaborate & deliver — Instantly."
+            subtitle="The modern workspace platform that empowers teams to work together seamlessly. Boost productivity by 40% with our intelligent collaboration tools."
+          />
+
           <div className="mt-8 md:mt-10 lg:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center lg:justify-start">
-            <Link
-              to="/signup"
-              className="relative inline-block w-full sm:w-auto px-6 py-3 md:px-6 md:py-2 text-base md:text-lg font-medium transition-colors duration-300 bg-white/25 backdrop-blur-md rounded-xl border border-white/25 text-center"
-            >
-              Get Started
-            </Link>
+            <LinkButton to="/signup">Get Started</LinkButton>
             <Link
               to="#demo"
               className="text-sm md:text-base font-semibold text-gray-300 hover:text-white transition"

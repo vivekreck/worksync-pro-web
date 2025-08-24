@@ -1,6 +1,6 @@
-import { Logo, NavLinks } from '../ui'
-import { MenuButton } from '../ui'
-
+import { NavLinks } from '../ui/marketing'
+import { MenuButton } from '../ui/marketing'
+import { Logo } from '../ui'
 interface Item {
   label: string
   href: string

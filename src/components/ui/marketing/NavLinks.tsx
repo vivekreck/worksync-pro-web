@@ -51,14 +51,14 @@ export const NavLinks = ({ onClick, navItems }: NavLinksProps) => {
       </ul>
 
       <ul className="flex flex-row md:ml-20 lg:ml-40 2xl:ml-40 md:gap-4 2xl:gap-12 lg:gap-10">
-        <AuthButton
+        <AuthLink
           href="/login"
           label="Log in"
           variant="default"
           active={active}
           handleClick={handleClick}
         />
-        <AuthButton
+        <AuthLink
           href="/signup"
           label="Sign up"
           variant="primary"
@@ -85,17 +85,17 @@ const NavLink = ({
         to={item.href}
         onClick={handleClick(item.href)}
         className={`relative inline-block text-sm px-2 lg:px-4 2xl:px-6 py-2  2xl:text-lg font-medium transition-colors duration-300
-              ${active === item.href ? 'text-white opacity-100' : 'text-[#E2E2E2] opacity-60 hover:opacity-100'}
+              ${active === item.href ? 'text-[hsl(var(--color-foreground))] opacity-100' : 'text-[hsl(var(--color-foreground))] opacity-60 hover:opacity-100'}
               ${
                 item.variant === 'primary' &&
-                'bg-white/25 backdrop-blur-md rounded-xl  2xl:rounded-2xl border border-white/25'
+                'bg-[hsl(var(--color-foreground))]/25 backdrop-blur-md rounded-xl  2xl:rounded-2xl border border-[hsl(var(--color-foreground))]/25'
               }`}
       >
         {item.label}
 
         <span
           className={`absolute md:top-10 lg:top-12 2xl:top-16 left-1/2 -translate-x-1/2 h-[2px] 2xl:h-[3px] w-[140%] 
-                bg-gradient-to-r from-transparent via-[#3B82F6] to-transparent origin-center
+                bg-gradient-to-r from-transparent via-[hsl(var(--color-ring))] to-transparent origin-center
                 transition-transform duration-500 ease-in-out
                 ${active === item.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
         />
@@ -104,7 +104,7 @@ const NavLink = ({
   )
 }
 
-const AuthButton = ({
+const AuthLink = ({
   href,
   label,
   variant,
@@ -123,18 +123,18 @@ const AuthButton = ({
         to={href}
         onClick={handleClick(href)}
         className={`relative inline-block text-sm px-2 lg:px-4 2xl:px-6 py-2  2xl:text-lg font-medium transition-colors duration-300
-              ${active === href ? 'text-white opacity-100' : 'text-[#E2E2E2] opacity-80 hover:opacity-100'}
+              ${active === href ? 'text-[hsl(var(--color-foreground))] opacity-100' : 'text-[hsl(var(--color-foreground))] opacity-80 hover:opacity-100'}
               ${
                 variant === 'primary' &&
-                'bg-white/25 backdrop-blur-md rounded-xl  2xl:rounded-2xl border border-white/25'
+                'bg-[hsl(var(--color-foreground))]/25 backdrop-blur-md rounded-xl  2xl:rounded-2xl border border-[hsl(var(--color-foreground))]/25'
               }`}
       >
         {label}
 
         <span
           className={`absolute md:top-10 lg:top-12 2xl:top-16 left-1/2 -translate-x-1/2 h-[2px] 2xl:h-[3px] w-[140%] 
-                bg-gradient-to-r from-transparent via-[#3B82F6] to-transparent origin-center
-                transition-transform duration-500 ease-in-out
+                bg-gradient-to-r from-transparent via-[hsl(var(--color-ring))] to-transparent origin-center
+                transition duration-500 ease-in-out
                 ${active === href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
         />
       </Link>
