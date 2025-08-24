@@ -2,34 +2,83 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* CSS Variables for theming */
 :root {
-  --color-primary: 59 130 246; /* blue-500 */
-  --color-primary-foreground: 255 255 255;
-  --color-secondary: 100 116 139; /* slate-500 */
-  --color-secondary-foreground: 15 23 42; /* slate-900 */
-  --color-background: 255 255 255;
-  --color-foreground: 15 23 42; /* slate-900 */
-  --color-muted: 241 245 249; /* slate-100 */
-  --color-muted-foreground: 100 116 139; /* slate-500 */
-  --color-border: 226 232 240; /* slate-200 */
-  --color-input: 226 232 240; /* slate-200 */
-  --color-ring: 59 130 246; /* blue-500 */
-  --radius: 0.5rem;
+  /* Primary Brand Colors - Teal/Cyan */
+  --color-primary: 174 78% 40%; /* #14B8A6 - teal-500 - main brand color */
+  --color-primary-foreground: 0 0% 100%; /* #FFFFFF - White */
+
+  /* Secondary Colors - Professional Blue/Purple */
+  --color-secondary: 239 84% 67%; /* #6366F1 - indigo-500 - for accents */
+  --color-secondary-foreground: 0 0% 100%; /* #FFFFFF - White */
+
+  /* Accent Colors - Success/Warning/Error */
+  --color-accent: 142 76% 45%; /* #22C55E - green-500 - success actions */
+  --color-accent-foreground: 0 0% 100%; /* #FFFFFF - White */
+
+  /* Light Mode Colors */
+  --color-background: 0 0% 100%; /* #FFFFFF - White */
+  --color-foreground: 212 84% 11%; /* #0F172A - slate-900 - main text */
+
+  /* Muted Colors */
+  --color-muted: 210 40% 98%; /* #F8FAFC - slate-50 - subtle backgrounds */
+  --color-muted-foreground: 215 16% 47%; /* #64748B - slate-500 - secondary text */
+
+  /* UI Colors */
+  --color-border: 214 32% 91%; /* #E2E8F0 - slate-200 - borders */
+  --color-input: 210 40% 98%; /* #F8FAFC - slate-50 - input backgrounds */
+  --color-ring: 174 78% 40%; /* #14B8A6 - teal-500 - focus rings */
+
+  /* Card/Surface Colors */
+  --color-card: 0 0% 100%; /* #FFFFFF - White */
+  --color-card-foreground: 212 84% 11%; /* #0F172A - slate-900 - card text */
+
+  /* Radius */
+  --radius: 0.75rem; /* 12px - modern rounded corners */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
+/* Dark Mode Colors */
 .dark {
-  --color-primary: 59 130 246; /* blue-500 */
-  --color-primary-foreground: 255 255 255;
-  --color-secondary: 51 65 85; /* slate-700 */
-  --color-secondary-foreground: 241 245 249; /* slate-100 */
-  --color-background: 2 6 23; /* slate-950 */
-  --color-foreground: 241 245 249; /* slate-100 */
-  --color-muted: 15 23 42; /* slate-900 */
-  --color-muted-foreground: 148 163 184; /* slate-400 */
-  --color-border: 30 41 59; /* slate-800 */
-  --color-input: 30 41 59; /* slate-800 */
-  --color-ring: 59 130 246; /* blue-500 */
+  /* Primary text */
+  --color-primary: 0 0% 100%; /* #FFFFFF */
+  --color-primary-foreground: 0 0% 0%; /* #000000 */
+
+  /* Accent colors */
+  --color-accent: 210 100% 56%; /* #3B82F6 */
+  --color-accent-second: 142 76% 36%; /* #16A34A; */
+  --color-accent-foreground: 0 0% 100%;
+
+  /* Backgrounds */
+  --color-background: 0 0% 3.9%; /* #000000 */
+  --color-foreground: 0 0% 100%;
+
+  /* Muted text / placeholders */
+  --color-muted: 0 0% 55%; /* #1F1F1F */
+  --color-muted-foreground: 0 0% 65%; /* #A1A1A1 */
+
+  /* Borders & Inputs */
+  --color-border: 0 0% 20%; /* #333333 */
+  --color-input: 0 0% 15%; /* #262626 */
+  --color-ring: 210 100% 56%; /* blue focus */
+
+  /* error */
+  --color-error: 0 84% 60%; /* #EF4444 */
+
+  /* success */
+  --color-success: 142 76% 36%; /* #16A34A; */
+
+  /* Cards */
+  --color-card: 0 0% 8%; /* #141414 */
+  --color-card-foreground: 0 0% 100%;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.6), 0 4px 6px -4px rgb(0 0 0 / 0.6);
 }
 
 /* Global styles */
@@ -43,9 +92,12 @@ body {
   font-feature-settings:
     'rlig' 1,
     'calt' 1;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - theme aware */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -56,48 +108,79 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--color-secondary));
+  background: hsl(var(--color-primary));
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--color-secondary) / 0.8);
+  background: hsl(var(--color-primary) / 0.8);
 }
 
-/* Utilities */
+/* Enhanced animations with theme awareness */
 .animate-in {
-  animation: animateIn 0.3s ease-out;
+  animation: animateIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-out {
-  animation: animateOut 0.3s ease-in;
+  animation: animateOut 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes animateIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(8px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes animateOut {
   from {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   to {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(-8px) scale(0.96);
   }
 }
 
-/* Focus styles */
+/* Enhanced focus styles */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-white transition-all duration-200;
+}
+
+/* Modern button styles using your color system */
+.btn-primary {
+  background: linear-gradient(135deg, hsl(var(--color-primary)), hsl(var(--color-secondary)));
+  color: hsl(var(--color-primary-foreground));
+  @apply px-6 py-3 rounded-xl font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  background: hsl(var(--color-muted));
+  color: hsl(var(--color-foreground));
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-opacity-80;
+}
+
+.btn-ghost {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100 text-gray-600 hover:text-gray-900;
+}
+
+/* Card styles */
+.card {
+  background: hsl(var(--color-card));
+  color: hsl(var(--color-card-foreground));
+  border: 1px solid hsl(var(--color-border));
+  box-shadow: var(--shadow-md);
+  @apply rounded-xl transition-all duration-200;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 /* Text utilities */
@@ -124,4 +207,26 @@ body {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+/* Gradient backgrounds for hero sections */
+.gradient-hero {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--color-primary) / 0.1) 0%,
+    hsl(var(--color-secondary) / 0.1) 50%,
+    hsl(var(--color-accent) / 0.05) 100%
+  );
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

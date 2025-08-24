@@ -1,0 +1,8 @@
+export { HeroSection } from './HeroSection'
+export { DesktopMockup } from './DesktopMockup'
+export { MobileMockup } from './MobileMockup'
+export { AnimatedBackground } from './AnimatedBackground'
+export { PricingSection } from './PricingSection'
+export { PlatformOverview } from './PlatformOverview'
+export { FeaturesSection } from './FeaturesSection'
+export { FooterSection } from './FooterSection'
