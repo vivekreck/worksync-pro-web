@@ -5,7 +5,12 @@ interface HeroHeadingProps {
   className?: string
 }
 
-export const Heading = ({ variant, title, subtitle, className = '' }: HeroHeadingProps) => {
+export const Heading = ({
+  variant,
+  title,
+  subtitle,
+  className = 'text-center',
+}: HeroHeadingProps) => {
   const content = {
     title: title,
     subtitle: subtitle || '',
@@ -13,7 +18,7 @@ export const Heading = ({ variant, title, subtitle, className = '' }: HeroHeadin
 
   if (variant === 'hero') {
     return (
-      <div className={`text-center lg:text-left ${className}`}>
+      <div className={`${className} lg:text-left`}>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-8xl font-semibold tracking-tight leading-tight text-[hsl(var(--color-foreground))]">
           {content.title}
         </h1>
@@ -30,7 +35,7 @@ export const Heading = ({ variant, title, subtitle, className = '' }: HeroHeadin
   }
 
   return (
-    <div className={`text-center ${className}`}>
+    <div className={`${className}`}>
       <h2 className="text-4xl font-bold mb-4 text-[hsl(var(--color-foreground))]">
         {content.title}
       </h2>
