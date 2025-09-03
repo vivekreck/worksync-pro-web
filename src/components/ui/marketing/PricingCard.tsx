@@ -88,8 +88,8 @@ export const PricingCard = ({
             Features & Capabilities
           </h4>
           <ul className="space-y-3">
-            {plan?.features?.map(feature => (
-              <CheckListItem title={feature.name} available={feature.available} />
+            {plan?.features?.map((feature, idx) => (
+              <CheckListItem key={idx} title={feature.name} available={feature.available} />
             ))}
           </ul>
         </div>

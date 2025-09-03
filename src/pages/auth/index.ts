@@ -1,4 +1,2 @@
-export { LandingPage } from './LandingPage'
-export { PricingPage } from './PricingPage'
 export { LoginPage } from '../auth/LoginPage'
 export { SignupPage } from '../auth/SignupPage'
