@@ -1,0 +1,258 @@
+﻿├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   ├── PULL_REQUEST_TEMPLATE/
+│   │   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── workflows/
+│   │   ├── ci.yml
+├── .husky/
+│   ├── _/
+│   │   ├── .gitignore
+│   │   ├── applypatch-msg
+│   │   ├── commit-msg
+│   │   ├── h
+│   │   ├── husky.sh
+│   │   ├── post-applypatch
+│   │   ├── post-checkout
+│   │   ├── post-commit
+│   │   ├── post-merge
+│   │   ├── post-rewrite
+│   │   ├── pre-applypatch
+│   │   ├── pre-auto-gc
+│   │   ├── pre-commit
+│   │   ├── pre-merge-commit
+│   │   ├── pre-push
+│   │   ├── pre-rebase
+│   │   ├── prepare-commit-msg
+│   ├── commit-msg
+│   ├── pre-commit
+│   ├── pre-push
+├── .storybook/
+│   ├── main.ts
+│   ├── preview.ts
+│   ├── vitest.setup.ts
+├── public/
+│   ├── vite.svg
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── logos/
+│   │   │   │   ├── logo-dark.png
+│   │   │   │   ├── logo-light.png
+│   │   ├── index.ts
+│   │   ├── react.svg
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── index.ts
+│   │   │   ├── MarketingHeader.tsx
+│   │   │   ├── MarketingNavbar.tsx
+│   │   ├── features/
+│   │   │   ├── auth/
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── LoginFeature.tsx
+│   │   │   │   ├── SignupFeature.tsx
+│   │   │   ├── marketing/
+│   │   │   │   ├── AnimatedBackground.tsx
+│   │   │   │   ├── DesktopMockup.tsx
+│   │   │   │   ├── FeaturesSection.tsx
+│   │   │   │   ├── FooterSection.tsx
+│   │   │   │   ├── HeroSection.tsx
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── MobileMockup.tsx
+│   │   │   │   ├── PlatformOverview.tsx
+│   │   │   │   ├── PricingSection.tsx
+│   │   ├── layout/
+│   │   │   ├── AuthLayout.tsx
+│   │   │   ├── index.ts
+│   │   │   ├── MarketingLayout.tsx
+│   │   ├── shared/
+│   │   │   ├── index.ts
+│   │   │   ├── SlideAnimation.tsx
+│   │   ├── ui/
+│   │   │   ├── Button/
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── PrimaryButton.tsx
+│   │   │   ├── fields/
+│   │   │   │   ├── Checkbox.tsx
+│   │   │   │   ├── ConfirmPasswordField.tsx
+│   │   │   │   ├── EmailField.tsx
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── Input.tsx
+│   │   │   │   ├── PasswordField.tsx
+│   │   │   │   ├── TermsCheckbox.tsx
+│   │   │   │   ├── TextField.tsx
+│   │   │   ├── forms/
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── LoginForm.tsx
+│   │   │   │   ├── SignupForm.tsx
+│   │   │   ├── marketing/
+│   │   │   │   ├── CheckListItem.tsx
+│   │   │   │   ├── FeatureCard.tsx
+│   │   │   │   ├── FeatureHighlight.tsx
+│   │   │   │   ├── FeaturesList.tsx
+│   │   │   │   ├── Heading.tsx
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── LinkButton.tsx
+│   │   │   │   ├── MenuButton.tsx
+│   │   │   │   ├── MobileMenu.tsx
+│   │   │   │   ├── NavLinks.tsx
+│   │   │   │   ├── PlatformCard.tsx
+│   │   │   │   ├── PricingCard.tsx
+│   │   │   ├── index.ts
+│   │   │   ├── Logo.tsx
+│   │   │   ├── Toast.tsx
+│   │   ├── index.ts
+│   ├── config/
+│   │   ├── index.ts
+│   ├── features/
+│   │   ├── analytics/
+│   │   ├── collaboration/
+│   │   ├── communication/
+│   │   ├── dashboard/
+│   │   ├── files/
+│   │   ├── marketing/
+│   │   │   ├── types/
+│   │   ├── projects/
+│   │   ├── settings/
+│   │   ├── tasks/
+│   ├── hooks/
+│   │   ├── api/
+│   │   │   ├── index.ts
+│   │   ├── auth/
+│   │   │   ├── index.ts
+│   │   │   ├── useAuth.ts
+│   │   ├── forms/
+│   │   │   ├── index.ts
+│   │   ├── performance/
+│   │   │   ├── index.ts
+│   │   ├── real-time/
+│   │   │   ├── index.ts
+│   │   ├── ui/
+│   │   │   ├── index.ts
+│   │   ├── index.ts
+│   ├── lib/
+│   │   ├── index.ts
+│   ├── pages/
+│   │   ├── auth/
+│   │   │   ├── index.ts
+│   │   │   ├── LoginPage.tsx
+│   │   │   ├── SignupPage.tsx
+│   │   ├── errors/
+│   │   │   ├── index.ts
+│   │   │   ├── NotFoundPage.tsx
+│   │   ├── marketing/
+│   │   │   ├── index.ts
+│   │   │   ├── LandingPage.tsx
+│   │   │   ├── PricingPage.tsx
+│   │   ├── index.ts
+│   ├── router/
+│   │   ├── index.tsx
+│   ├── services/
+│   │   ├── api/
+│   │   │   ├── endpoints/
+│   │   │   │   ├── index.ts
+│   │   ├── auth/
+│   │   │   ├── authService.ts
+│   │   ├── index.ts
+│   ├── shared/
+│   │   ├── components/
+│   │   │   ├── forms/
+│   │   │   ├── ui/
+│   │   │   │   ├── Logo/
+│   │   │   │   ├── Toast/
+│   │   ├── lib/
+│   │   ├── services/
+│   │   │   ├── storage/
+│   │   │   ├── websocket/
+│   │   ├── utils/
+│   │   │   ├── constants/
+│   │   │   ├── formatters/
+│   │   │   ├── validators/
+│   ├── stores/
+│   │   ├── context/
+│   │   │   ├── AuthContext.tsx
+│   │   │   ├── ThemeContext.tsx
+│   │   ├── index.ts
+│   ├── stories/
+│   │   ├── assets/
+│   │   │   ├── accessibility.png
+│   │   │   ├── accessibility.svg
+│   │   │   ├── addon-library.png
+│   │   │   ├── assets.png
+│   │   │   ├── avif-test-image.avif
+│   │   │   ├── context.png
+│   │   │   ├── discord.svg
+│   │   │   ├── docs.png
+│   │   │   ├── figma-plugin.png
+│   │   │   ├── github.svg
+│   │   │   ├── share.png
+│   │   │   ├── styling.png
+│   │   │   ├── testing.png
+│   │   │   ├── theming.png
+│   │   │   ├── tutorials.svg
+│   │   │   ├── youtube.svg
+│   │   ├── button.css
+│   │   ├── Button.stories.ts
+│   │   ├── Button.tsx
+│   │   ├── Configure.mdx
+│   │   ├── header.css
+│   │   ├── Header.stories.ts
+│   │   ├── Header.tsx
+│   │   ├── page.css
+│   │   ├── Page.stories.ts
+│   │   ├── Page.tsx
+│   ├── styles/
+│   │   ├── animations/
+│   │   ├── components/
+│   │   ├── globals/
+│   │   ├── themes/
+│   │   ├── index.css
+│   ├── test/
+│   │   ├── setup.ts
+│   ├── types/
+│   │   ├── api/
+│   │   │   ├── common.ts
+│   │   ├── entities/
+│   │   │   ├── feature.ts
+│   │   │   ├── platformModule.ts
+│   │   │   ├── pricing.ts
+│   │   │   ├── user.ts
+│   │   ├── forms/
+│   │   │   ├── auth.ts
+│   │   ├── store/
+│   │   │   ├── auth.ts
+│   │   ├── index.ts
+│   ├── utils/
+│   │   ├── helpers/
+│   │   │   ├── cn.ts
+│   ├── workers/
+│   │   ├── service-worker/
+│   │   ├── web-workers/
+│   │   ├── index.ts
+│   ├── __tests__/
+│   │   ├── example.test.js
+│   │   ├── setup.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── vite-env.d.ts
+├── .env.example
+├── .env.local
+├── .eslintrc.json
+├── .gitignore
+├── .prettierrc
+├── CHANGELOG.md
+├── commitlint.config.cjs
+├── CONTRIBUTING.md
+├── index.html
+├── LICENSE
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+├── tree.txt
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── vitest.shims.d.ts
