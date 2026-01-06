@@ -1,5 +1,5 @@
-import darkLogo from '@/assets/images/logos/logo-dark.png'
-import lightLogo from '@/assets/images/logos/logo-light.png'
+import darkLogo from '@/shared/assets/images/logos/logo-dark.png'
+import lightLogo from '@/shared/assets/images/logos/logo-light.png'
 import { Link } from 'react-router-dom'
 
 interface LogoProps {
