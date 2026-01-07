@@ -1,9 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
-import { AppRouter } from '@/router' // This will now work
-import { ThemeProvider } from '@/stores/context/ThemeContext'
-import { Toaster } from '@/components/ui/Toast'
+import { AppRouter } from '@/core/router'
+import { ThemeProvider } from '@/core/providers/ThemeContext'
+import { Toaster } from '@/shared/components/ui'
 
 const queryClient = new QueryClient({
   defaultOptions: {
