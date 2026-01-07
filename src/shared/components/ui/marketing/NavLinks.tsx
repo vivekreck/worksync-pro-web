@@ -24,12 +24,27 @@ export const NavLinks = ({ onClick, navItems }: NavLinksProps) => {
     setActive(path)
   }, [location])
 
+  useEffect(() => {
+    const hash = location.hash
+    if (hash) {
+      setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    }
+  }, [])
+
   const handleClick = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
 
     if (href.startsWith('#')) {
       navigate('/' + href)
-      // document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+      if (location.pathname === '/') {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        setTimeout(() => {
+          document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      }
     } else {
       navigate(href)
     }

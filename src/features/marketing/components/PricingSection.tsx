@@ -82,7 +82,7 @@ export function PricingSection() {
   )
 
   return (
-    <section className="min-h-screen p-8">
+    <section id="pricing" className="min-h-screen p-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <Heading
