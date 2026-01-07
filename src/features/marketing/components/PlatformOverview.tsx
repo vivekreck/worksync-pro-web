@@ -75,7 +75,7 @@ export const PlatformOverview = () => {
   const [hoveredModule, setHoveredModule] = useState<string | null>(null)
 
   return (
-    <div className="min-h-screen py-16 px-4">
+    <div id="features" className="min-h-screen py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <Heading

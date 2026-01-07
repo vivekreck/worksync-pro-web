@@ -8,7 +8,10 @@ import { LinkButton, Heading } from '@/shared/components/ui/marketing'
 
 export function HeroSection() {
   return (
-    <section className="min-h-[calc(100vh-60px)] flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <section
+      id="home"
+      className="min-h-[calc(100vh-60px)] flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
+    >
       {/* Left content */}
       <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left flex items-center justify-center lg:justify-start mt-10 md:mt-0">
         <motion.div
